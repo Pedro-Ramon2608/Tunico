@@ -6,9 +6,6 @@ class Bruxa(Personagem):
         super().__init__(nome, 50, 25, 'Necromante',
             'Fire Ball', 'Rajada Umbra')
 
-    def __str__(self):
-        return f'Bruxa: {self.nome} | Vida: {self.barra_de_vida} | Escudo: {self.escudo}'
-
     @staticmethod
     def super_necromante():
         return "Necromante"

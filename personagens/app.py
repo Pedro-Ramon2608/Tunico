@@ -35,6 +35,8 @@ Opção: '''))
             battle(personagem)
 
 
+cont_ataques = 0
+
 def battle(personagem):
     print('\n')
     linha(40)
@@ -44,9 +46,55 @@ def battle(personagem):
     print(personagem)
     linha(40)
     print()
+
     while True:
-        opcao_jogo = int(input(f'''-----> Faça sua escolha <-----
-    [ 1 ] - Ver status
-    [ 2 ] - {personagem}
-    [ 0 ] - Sair
-Opção: '''))
+        if cont_ataques == 2:
+            opcao_jogo = menu_ataques_com_especial(personagem)
+            opcao = aplicacao_das_escolhas(opcao_jogo, personagem)
+            cont_ataques = 0
+            if opcao == 0:
+                break
+
+        else:
+            opcao_jogo = menu_ataques(personagem)
+            opcao = aplicacao_das_escolhas(opcao_jogo, personagem)
+            if opcao == 0:
+                break
+
+
+def menu_ataques(personagem):
+    opcao_jogo = int(input(f'''-----> Faça sua escolha <-----
+        [ 1 ] - Ver status
+        [ 2 ] - {personagem.nome_primeiro_ataque_basico}
+        [ 3 ] - {personagem.nome_segundo_ataque_basico}
+        [ 0 ] - Sair
+    Opção: '''))
+    return opcao_jogo
+
+def menu_ataques_com_especial(personagem):
+    opcao_jogo = int(input(f'''-----> Faça sua escolha <-----
+        [ 1 ] - Ver status
+        [ 2 ] - {personagem.nome_da_super}
+        [ 3 ] - {personagem.nome_primeiro_ataque_basico}
+        [ 4 ] - {personagem.nome_segundo_ataque_basico}
+        [ 0 ] - Sair
+    Opção: '''))
+    return opcao_jogo
+
+def aplicacao_das_escolhas(opcao_jogo, personagem):
+    if opcao_jogo < 0 or opcao_jogo > 3:
+        return 'Opção inválida. Tente novamente.'
+
+    if opcao_jogo == 0:
+        return 0
+
+    if opcao_jogo == 1:
+        return linha(36) + '\n' + print(personagem) + '\n' + linha(36)
+
+    elif opcao_jogo == 2:
+        cont_ataques += 1
+        return f'Receba {personagem.nome_primeiro_ataque_basico}'
+
+    elif opcao_jogo == 3:
+        cont_ataques += 1
+        return f'Receba {personagem.nome_segundo_ataque_basico}'

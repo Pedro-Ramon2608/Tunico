@@ -6,9 +6,6 @@ class Paladino(Personagem):
         super().__init__(nome, 75, 25, 'Benção Divina',
                          'Espada de Luz', 'Corte Rápido')
 
-    def __str__(self):
-        return f'Paladino: {self.nome} | Vida: {self.barra_de_vida} | Escudo: {self.escudo}'
-
     @staticmethod
     def super_bencao_divina():
         return "Benção Divina"
