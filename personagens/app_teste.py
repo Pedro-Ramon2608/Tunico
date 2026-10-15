@@ -1,4 +1,4 @@
-from personagens import linha, perguntas_basicas
+from personagens import linha, pergunta_nome_personagem
 from personagens.arqueiro import Arqueiro
 from personagens.bruxa import Bruxa
 from personagens.paladino import Paladino
@@ -20,17 +20,17 @@ Opção: '''))
             break
 
         elif opcao_personagem == 1:
-            nome_usuario = perguntas_basicas()
+            nome_usuario = pergunta_nome_personagem()
             personagem = Arqueiro(nome=nome_usuario)
             battle(personagem)
 
         elif opcao_personagem == 2:
-            nome_usuario = perguntas_basicas()
+            nome_usuario = pergunta_nome_personagem()
             personagem = Bruxa(nome=nome_usuario)
             battle(personagem)
 
         elif opcao_personagem == 3:
-            nome_usuario = perguntas_basicas()
+            nome_usuario = pergunta_nome_personagem()
             personagem = Paladino(nome=nome_usuario)
             battle(personagem)
 

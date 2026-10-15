@@ -1,4 +1,4 @@
-from personagens.app import start_game, linha
+from personagens.app_teste import start_game, linha
 
 
 linha(36)
